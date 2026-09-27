@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Gilded Age Trivia</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <header>
+            <p class="eyebrow">New York Society Awaits</p>
+            <h1>The Gilded Age Trivia</h1>
+            <p>How well do you know the Russells, the van Rhijns, and New York society?</p>
+        </header>
+
+        <section id="quiz-screen">
+
+            <div class="progress-area">
+                <p id="progress-text">Question 1 of 20</p>
+
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+
+                <h2 id="question">
+                    Question goes here
+                </h2>
+
+                <div id="answer-buttons">
+                </div>
+
+                <p id="feedback"></p>
+
+                <button id="next-button" class="next-button">
+                    Next Question
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="results-screen" class="hidden">
+
+            <p class="eyebrow">The Results Are In</p>
+
+            <h2>Your Score</h2>
+
+            <p id="final-score"></p>
+
+            <p id="result-message"></p>
+
+            <button id="play-again-button">
+                Play Again
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
