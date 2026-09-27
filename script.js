@@ -9,5 +9,10 @@ const questions = [
 console.log(questions);
 
 const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
 
 questionElement.textContent = questions[0].question;
+
+questions[0].answers.forEach(answer => {
+    console.log(answer);
+});
