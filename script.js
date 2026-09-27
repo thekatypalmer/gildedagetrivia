@@ -5,3 +5,5 @@ const questions = [
         correctAnswer: "Railroads"
     }
 ];
+
+console.log(questions);
