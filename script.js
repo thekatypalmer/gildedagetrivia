@@ -17,5 +17,8 @@ questions[0].answers.forEach(answer => {
     const button = document.createElement("button");
     button.textContent = answer;
     button.classList.add("answer-button");
+    button.addEventListener("click", () => {
+        console.log(answer);
+});
     answerButtons.appendChild(button);
 });
