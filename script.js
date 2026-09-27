@@ -14,5 +14,8 @@ const answerButtons = document.getElementById("answer-buttons");
 questionElement.textContent = questions[0].question;
 
 questions[0].answers.forEach(answer => {
-    console.log(answer);
+    const button = document.createElement("button");
+    button.textContent = answer;
+    button.classList.add("answer-button");
+    answerButtons.appendChild(button);
 });
