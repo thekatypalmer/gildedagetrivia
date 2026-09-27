@@ -7,3 +7,7 @@ const questions = [
 ];
 
 console.log(questions);
+
+const questionElement = document.getElementById("question");
+
+questionElement.textContent = questions[0].question;
