@@ -10,6 +10,7 @@ console.log(questions);
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
+const feedbackElement = document.getElementById("feedback");
 
 questionElement.textContent = questions[0].question;
 
@@ -18,7 +19,11 @@ questions[0].answers.forEach(answer => {
     button.textContent = answer;
     button.classList.add("answer-button");
     button.addEventListener("click", () => {
-        console.log(answer);
+    if (answer === questions[0].correctAnswer) {
+        feedbackElement.textContent = "Correct!";
+    } else {
+        feedbackElement.textContent = "Incorrect!";
+    }
 });
     answerButtons.appendChild(button);
 });
