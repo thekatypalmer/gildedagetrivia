@@ -97,7 +97,7 @@ h1 {
     text-align: left;
 }
 
-.answer-button:hover {
+.answer-button:not(:disabled):hover {
     background: #e7ddc8;
 }
 
