@@ -4,35 +4,49 @@ const questions = [
         answers: ["Banking", "Railroads", "Shipping", "Steel"],
         correctAnswer: "Railroads"
     }
+    {
+        question: "What is the name of George Russell's wife?",
+        answers: ["Agnes", "Bertha", "Ada", "Aurora"],
+        correctAnswer: "Bertha"
+    }
 ];
 let score = 0;
+let currentQuestion = 0;
 
 console.log(questions);
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const feedbackElement = document.getElementById("feedback");
+const nextButton = document.getElementById("next-button");
 
-questionElement.textContent = questions[0].question;
+function showQuestion() {
+    questionElement.textContent = questions[currentQuestion].question;
 
-questions[0].answers.forEach(answer => {
-    const button = document.createElement("button");
-    button.textContent = answer;
-    button.classList.add("answer-button");
-    
-   button.addEventListener("click", () => {
-    if (answer === questions[0].correctAnswer) {
-        score = score + 1;
-        console.log("Score:", score);
-        feedbackElement.textContent = "Correct!";
-    } else {
-        feedbackElement.textContent = "Incorrect!";
-    }
+    questions[currentQuestion].answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.textContent = answer;
+        button.classList.add("answer-button");
 
-    for (const answerButton of answerButtons.children) {
-        answerButton.disabled = true;
-    }
+        button.addEventListener("click", () => {
+            if (answer === questions[currentQuestion].correctAnswer) {
+                score = score + 1;
+                console.log("Score:", score);
+                feedbackElement.textContent = "Correct!";
+            } else {
+                feedbackElement.textContent = "Incorrect!";
+            }
+
+            for (const answerButton of answerButtons.children) {
+                answerButton.disabled = true;
+            }
+        });
+
+    nextButton.addEventListener("click", () => {
+    currentQuestion = currentQuestion + 1;
+    showQuestion();
 });
 
     answerButtons.appendChild(button);
+    showQuestion();
 });
