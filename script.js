@@ -20,7 +20,7 @@ questions[0].answers.forEach(answer => {
     button.textContent = answer;
     button.classList.add("answer-button");
     
-    button.addEventListener("click", () => {
+   button.addEventListener("click", () => {
     if (answer === questions[0].correctAnswer) {
         score = score + 1;
         console.log("Score:", score);
@@ -28,10 +28,10 @@ questions[0].answers.forEach(answer => {
     } else {
         feedbackElement.textContent = "Incorrect!";
     }
-}
-                            
+
     for (const answerButton of answerButtons.children) {
-    answerButton.disabled = true;
+        answerButton.disabled = true;
+    }
 });
 
     answerButtons.appendChild(button);
