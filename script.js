@@ -28,6 +28,9 @@ function showQuestion() {
     answerButtons.innerHTML = "";
     feedbackElement.textContent = "";
 
+    // Disable Next until the player answers
+    nextButton.disabled = true;
+
     // Display the current question
     questionElement.textContent = questions[currentQuestion].question;
     progressText.textContent =
@@ -61,7 +64,10 @@ function showQuestion() {
                 answerButton.disabled = true;
             }
 
-        });
+       // The player has answered, so allow them to continue
+        nextButton.disabled = false;
+
+}); // closes the answer button click listener
 
         answerButtons.appendChild(button);
 
