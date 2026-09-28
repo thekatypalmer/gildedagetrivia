@@ -101,6 +101,12 @@ h1 {
     background: #e7ddc8;
 }
 
+.answer-button:disabled,
+.next-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 .next-button,
 #play-again-button {
     background: #293b34;
