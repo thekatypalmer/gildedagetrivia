@@ -33,6 +33,13 @@ function showQuestion() {
     progressText.textContent =
     `Question ${currentQuestion + 1} of ${questions.length}`;
 
+    // Calculate the progress percentage
+    const progressPercent =
+    ((currentQuestion + 1) / questions.length) * 100;
+
+    // Change the width of the progress bar
+    progressFill.style.width = `${progressPercent}%`;
+
     // Create the answer buttons
     questions[currentQuestion].answers.forEach(answer => {
 
