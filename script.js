@@ -3,7 +3,7 @@ const questions = [
         question: "What is George Russell's primary business?",
         answers: ["Banking", "Railroads", "Shipping", "Steel"],
         correctAnswer: "Railroads"
-    }
+    },
     {
         question: "What is the name of George Russell's wife?",
         answers: ["Agnes", "Bertha", "Ada", "Aurora"],
