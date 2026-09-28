@@ -19,6 +19,8 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const feedbackElement = document.getElementById("feedback");
 const nextButton = document.getElementById("next-button");
+const progressText = document.getElementById("progress-text");
+const progressFill = document.getElementById("progress-fill");
 
 function showQuestion() {
 
@@ -28,6 +30,8 @@ function showQuestion() {
 
     // Display the current question
     questionElement.textContent = questions[currentQuestion].question;
+    progressText.textContent =
+    `Question ${currentQuestion + 1} of ${questions.length}`;
 
     // Create the answer buttons
     questions[currentQuestion].answers.forEach(answer => {
