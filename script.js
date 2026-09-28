@@ -5,6 +5,7 @@ const questions = [
         correctAnswer: "Railroads"
     }
 ];
+let score = 0;
 
 console.log(questions);
 
@@ -20,6 +21,8 @@ questions[0].answers.forEach(answer => {
     button.classList.add("answer-button");
     button.addEventListener("click", () => {
     if (answer === questions[0].correctAnswer) {
+        score = score + 1;
+        console.log("Score:", score);
         feedbackElement.textContent = "Correct!";
     } else {
         feedbackElement.textContent = "Incorrect!";
