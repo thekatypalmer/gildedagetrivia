@@ -21,14 +21,23 @@ const feedbackElement = document.getElementById("feedback");
 const nextButton = document.getElementById("next-button");
 
 function showQuestion() {
+
+    // Clear the previous question
+    answerButtons.innerHTML = "";
+    feedbackElement.textContent = "";
+
+    // Display the current question
     questionElement.textContent = questions[currentQuestion].question;
 
+    // Create the answer buttons
     questions[currentQuestion].answers.forEach(answer => {
+
         const button = document.createElement("button");
         button.textContent = answer;
         button.classList.add("answer-button");
 
         button.addEventListener("click", () => {
+
             if (answer === questions[currentQuestion].correctAnswer) {
                 score = score + 1;
                 console.log("Score:", score);
@@ -40,13 +49,21 @@ function showQuestion() {
             for (const answerButton of answerButtons.children) {
                 answerButton.disabled = true;
             }
+
         });
 
-    nextButton.addEventListener("click", () => {
+        answerButtons.appendChild(button);
+
+    });
+}
+
+
+// Next Question button
+nextButton.addEventListener("click", () => {
     currentQuestion = currentQuestion + 1;
     showQuestion();
 });
 
-    answerButtons.appendChild(button);
-    showQuestion();
-});
+
+// Start the game
+showQuestion();
