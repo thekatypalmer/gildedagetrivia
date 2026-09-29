@@ -108,7 +108,7 @@ function showResults() {
     } else if (percentage >= 50) {
         resultMessage.textContent = "A respectable showing.";
     } else {
-        resultMessage.textContent = "Perhaps another season in society is in order.";
+        resultMessage.textContent = "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
     }
 
 }
