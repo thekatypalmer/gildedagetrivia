@@ -108,7 +108,9 @@ playAgainButton.addEventListener("click", () => {
     
     resultsScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
-    quizScreen.classList.remove("hidden");
+
+    // Redraw Question 1 and clear the old feedback
+    showQuestion();
 
 }); // Play Again listener ends here
 
