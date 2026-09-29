@@ -9,6 +9,21 @@ const questions = [
         answers: ["Agnes", "Bertha", "Ada", "Aurora"],
         correctAnswer: "Bertha"
     }
+    {
+        question: "Who is Marian Brook's aunt?",
+        answers: ["Bertha Russell", "Agnes van Rhijn", "Peggy Scott", "Mrs. Astor"],
+        correctAnswer: "Agnes van Rhijn"
+    }
+    {
+        question: "What is Peggy Scott's profession?",
+        answers: ["Teacher", "Journalist", "Actress", "Doctor"],
+        correctAnswer: "Journalist"
+    },
+    {
+        question: "What is the name of George and Bertha Russell's daughter?",
+        answers: ["Gladys", "Marian", "Carrie", "Ada"],
+        correctAnswer: "Gladys"
+    }
 ];
 let score = 0;
 let currentQuestion = 0;
