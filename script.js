@@ -76,14 +76,21 @@ function showQuestion() {
                 score = score + 1;
                 console.log("Score:", score);
                 feedbackElement.textContent = "Correct!";
+                button.classList.add("correct");               
             } else {
                 feedbackElement.textContent =
                     `Incorrect! The correct answer was ${questions[currentQuestion].correctAnswer}.`;
+                button.classList.add("incorrect");
             }
 
             for (const answerButton of answerButtons.children) {
-                answerButton.disabled = true;
+
+                if (answerButton.textContent === questions[currentQuestion].correctAnswer) {
+                    answerButton.classList.add("correct");
             }
+
+        answerButton.disabled = true;
+}
 
        // The player has answered, so allow them to continue
         nextButton.disabled = false;
