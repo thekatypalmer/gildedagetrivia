@@ -8,12 +8,12 @@ const questions = [
         question: "What is the name of George Russell's wife?",
         answers: ["Agnes", "Bertha", "Ada", "Aurora"],
         correctAnswer: "Bertha"
-    }
+    },
     {
         question: "Who is Marian Brook's aunt?",
         answers: ["Bertha Russell", "Agnes van Rhijn", "Peggy Scott", "Mrs. Astor"],
         correctAnswer: "Agnes van Rhijn"
-    }
+    },
     {
         question: "What is Peggy Scott's profession?",
         answers: ["Teacher", "Journalist", "Actress", "Doctor"],
