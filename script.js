@@ -77,8 +77,12 @@ function showQuestion() {
 
 // Next Question button
 nextButton.addEventListener("click", () => {
-    currentQuestion = currentQuestion + 1;
-    showQuestion();
+
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion = currentQuestion + 1;
+        showQuestion();
+    }
+
 });
 
 
