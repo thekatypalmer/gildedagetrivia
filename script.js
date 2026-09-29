@@ -51,6 +51,13 @@ function showQuestion() {
     // Disable Next until the player answers
     nextButton.disabled = true;
 
+    // Change the button text on the final question
+if (currentQuestion === questions.length - 1) {
+    nextButton.textContent = "See Results";
+    } else {
+    nextButton.textContent = "Next Question";
+    }
+
     // Display the current question
     questionElement.textContent = questions[currentQuestion].question;
     progressText.textContent =
