@@ -77,7 +77,8 @@ function showQuestion() {
                 console.log("Score:", score);
                 feedbackElement.textContent = "Correct!";
             } else {
-                feedbackElement.textContent = "Incorrect!";
+                feedbackElement.textContent =
+                    `Incorrect! The correct answer was ${questions[currentQuestion].correctAnswer}.`;
             }
 
             for (const answerButton of answerButtons.children) {
