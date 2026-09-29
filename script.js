@@ -24,6 +24,7 @@ const progressFill = document.getElementById("progress-fill");
 const quizScreen = document.getElementById("quiz-screen");
 const resultsScreen = document.getElementById("results-screen");
 const finalScore = document.getElementById("final-score");
+const resultMessage = document.getElementById("result-message");
 const playAgainButton = document.getElementById("play-again-button");
 
 function showQuestion() {
@@ -85,6 +86,15 @@ function showResults() {
 
     finalScore.textContent =
         `${score} out of ${questions.length}`;
+
+    const percentage = (score / questions.length) * 100;
+    if (percentage === 100) {
+        resultMessage.textContent = "A triumph worthy of New York society!";
+    } else if (percentage >= 50) {
+        resultMessage.textContent = "A respectable showing.";
+    } else {
+        resultMessage.textContent = "Perhaps another season in society is in order.";
+    }
 
 }
 
