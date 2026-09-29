@@ -21,6 +21,9 @@ const feedbackElement = document.getElementById("feedback");
 const nextButton = document.getElementById("next-button");
 const progressText = document.getElementById("progress-text");
 const progressFill = document.getElementById("progress-fill");
+const quizScreen = document.getElementById("quiz-screen");
+const resultsScreen = document.getElementById("results-screen");
+const finalScore = document.getElementById("final-score");
 
 function showQuestion() {
 
@@ -74,6 +77,15 @@ function showQuestion() {
     });
 }
 
+function showResults() {
+
+    quizScreen.classList.add("hidden");
+    resultsScreen.classList.remove("hidden");
+
+    finalScore.textContent =
+        `${score} out of ${questions.length}`;
+
+}
 
 // Next Question button
 nextButton.addEventListener("click", () => {
@@ -81,6 +93,8 @@ nextButton.addEventListener("click", () => {
     if (currentQuestion < questions.length - 1) {
         currentQuestion = currentQuestion + 1;
         showQuestion();
+    } else {
+        showResults();
     }
 
 });
