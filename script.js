@@ -24,6 +24,7 @@ const progressFill = document.getElementById("progress-fill");
 const quizScreen = document.getElementById("quiz-screen");
 const resultsScreen = document.getElementById("results-screen");
 const finalScore = document.getElementById("final-score");
+const playAgainButton = document.getElementById("play-again-button");
 
 function showQuestion() {
 
@@ -97,8 +98,23 @@ nextButton.addEventListener("click", () => {
         showResults();
     }
 
-});
+}); // Next Question listener ends here
 
+
+playAgainButton.addEventListener("click", () => {
+
+    score = 0;
+    currentQuestion = 0;
+    
+    resultsScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+    quizScreen.classList.remove("hidden");
+
+}); // Play Again listener ends here
+
+// ========================================
+// START THE APPLICATION
+// ========================================
 
 // Start the game
 showQuestion();
