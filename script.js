@@ -42,6 +42,20 @@ const finalScore = document.getElementById("final-score");
 const resultMessage = document.getElementById("result-message");
 const playAgainButton = document.getElementById("play-again-button");
 
+function shuffleArray(array) {
+
+    for (let i = array.length - 1; i > 0; i--) {
+
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+
+        const temporaryValue = array[i];
+        array[i] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 function showQuestion() {
 
     // Clear the previous question
@@ -70,8 +84,11 @@ if (currentQuestion === questions.length - 1) {
     // Change the width of the progress bar
     progressFill.style.width = `${progressPercent}%`;
 
+    const shuffledAnswers = [...questions[currentQuestion].answers];
+    shuffleArray(shuffledAnswers);
+
     // Create the answer buttons
-    questions[currentQuestion].answers.forEach(answer => {
+    shuffledAnswers.forEach(answer => {
 
         const button = document.createElement("button");
         button.textContent = answer;
