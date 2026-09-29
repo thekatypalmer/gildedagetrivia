@@ -107,6 +107,16 @@ h1 {
     opacity: 0.6;
 }
 
+.answer-button.correct {
+    background: #dce8d8;
+    border-color: #55704d;
+}
+
+.answer-button.incorrect {
+    background: #ead7d3;
+    border-color: #8a5148;
+}
+
 .next-button,
 #play-again-button {
     background: #293b34;
