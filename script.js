@@ -27,6 +27,7 @@ const questions = [
 ];
 let score = 0;
 let currentQuestion = 0;
+let gameQuestions = [];
 
 console.log(questions);
 
@@ -56,6 +57,20 @@ function shuffleArray(array) {
     return array;
 }
 
+function startGame() {
+
+    score = 0;
+    currentQuestion = 0;
+
+    gameQuestions = [...questions];
+    shuffleArray(gameQuestions);
+
+    resultsScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+
+    showQuestion();
+}
+
 function showQuestion() {
 
     // Clear the previous question
@@ -66,25 +81,25 @@ function showQuestion() {
     nextButton.disabled = true;
 
     // Change the button text on the final question
-if (currentQuestion === questions.length - 1) {
+if (currentQuestion === gameQuestions.length - 1) {
     nextButton.textContent = "See Results";
     } else {
     nextButton.textContent = "Next Question";
     }
 
     // Display the current question
-    questionElement.textContent = questions[currentQuestion].question;
+    questionElement.textContent = gameQuestions[currentQuestion].question;
     progressText.textContent =
-    `Question ${currentQuestion + 1} of ${questions.length}`;
+    `Question ${currentQuestion + 1} of ${gameQuestions.length}`;
 
     // Calculate the progress percentage
     const progressPercent =
-    ((currentQuestion + 1) / questions.length) * 100;
+    ((currentQuestion + 1) / gameQuestions.length) * 100;
 
     // Change the width of the progress bar
     progressFill.style.width = `${progressPercent}%`;
 
-    const shuffledAnswers = [...questions[currentQuestion].answers];
+    const shuffledAnswers = [...gameQuestions[currentQuestion].answers];
     shuffleArray(shuffledAnswers);
 
     // Create the answer buttons
@@ -96,20 +111,20 @@ if (currentQuestion === questions.length - 1) {
 
         button.addEventListener("click", () => {
 
-            if (answer === questions[currentQuestion].correctAnswer) {
+            if (answer === gameQuestions[currentQuestion].correctAnswer) {
                 score = score + 1;
                 console.log("Score:", score);
                 feedbackElement.textContent = "Correct!";
                 button.classList.add("correct");               
             } else {
                 feedbackElement.textContent =
-                    `Incorrect! The correct answer was ${questions[currentQuestion].correctAnswer}.`;
+                    `Incorrect! The correct answer was ${gameQuestions[currentQuestion].correctAnswer}.`;
                 button.classList.add("incorrect");
             }
 
             for (const answerButton of answerButtons.children) {
 
-                if (answerButton.textContent === questions[currentQuestion].correctAnswer) {
+                if (answerButton.textContent === gameQuestions[currentQuestion].correctAnswer) {
                     answerButton.classList.add("correct");
             }
 
@@ -132,9 +147,9 @@ function showResults() {
     resultsScreen.classList.remove("hidden");
 
     finalScore.textContent =
-        `${score} out of ${questions.length}`;
+        `${score} out of ${gameQuestions.length}`;
 
-    const percentage = (score / questions.length) * 100;
+    const percentage = (score / gameQuestions.length) * 100;
     if (percentage === 100) {
         resultMessage.textContent = "A triumph worthy of New York society!";
     } else if (percentage >= 50) {
@@ -148,9 +163,9 @@ function showResults() {
 // Next Question button
 nextButton.addEventListener("click", () => {
 
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < gameQuestions.length - 1) {
         currentQuestion = currentQuestion + 1;
-        showQuestion();
+        startGame();
     } else {
         showResults();
     }
@@ -160,14 +175,7 @@ nextButton.addEventListener("click", () => {
 
 playAgainButton.addEventListener("click", () => {
 
-    score = 0;
-    currentQuestion = 0;
-    
-    resultsScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
-
-    // Redraw Question 1 and clear the old feedback
-    showQuestion();
+    startGame();
 
 }); // Play Again listener ends here
 
