@@ -25,6 +25,9 @@ const questions = [
         correctAnswer: "Gladys"
     }
 ];
+
+const QUESTIONS_PER_GAME = 3;
+
 let score = 0;
 let currentQuestion = 0;
 let gameQuestions = [];
@@ -64,6 +67,8 @@ function startGame() {
 
     gameQuestions = [...questions];
     shuffleArray(gameQuestions);
+
+    gameQuestions = gameQuestions.slice(0, QUESTIONS_PER_GAME);
 
     resultsScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
