@@ -143,6 +143,16 @@ if (currentQuestion === gameQuestions.length - 1) {
 
         button.addEventListener("click", () => {
 
+        const isCorrect =
+        answer === gameQuestions[currentQuestion].correctAnswer;
+
+        playerAnswers.push({
+            question: gameQuestions[currentQuestion].question,
+            selectedAnswer: answer,
+            correctAnswer: gameQuestions[currentQuestion].correctAnswer,
+            isCorrect: isCorrect
+        });
+
             if (isCorrect) {
                 score = score + 1;
                 console.log("Score:", score);
@@ -174,7 +184,9 @@ if (currentQuestion === gameQuestions.length - 1) {
 }
 
 function showResults() {
-
+    
+    console.log(playerAnswers);
+    
     quizScreen.classList.add("hidden");
     resultsScreen.classList.remove("hidden");
 
@@ -194,16 +206,6 @@ function showResults() {
 
 // Next Question button
 nextButton.addEventListener("click", () => {
-
-    const isCorrect =
-    answer === gameQuestions[currentQuestion].correctAnswer;
-
-    playerAnswers.push({
-    question: gameQuestions[currentQuestion].question,
-    selectedAnswer: answer,
-    correctAnswer: gameQuestions[currentQuestion].correctAnswer,
-    isCorrect: isCorrect
-    });
 
     if (currentQuestion < gameQuestions.length - 1) {
         currentQuestion = currentQuestion + 1;
