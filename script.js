@@ -56,6 +56,7 @@ const QUESTIONS_PER_GAME = 5;
 let score = 0;
 let currentQuestion = 0;
 let gameQuestions = [];
+let playerAnswers = [];
 
 console.log(questions);
 
@@ -89,6 +90,7 @@ function startGame() {
 
     score = 0;
     currentQuestion = 0;
+    playerAnswers = [];
 
     gameQuestions = [...questions];
     shuffleArray(gameQuestions);
@@ -141,7 +143,7 @@ if (currentQuestion === gameQuestions.length - 1) {
 
         button.addEventListener("click", () => {
 
-            if (answer === gameQuestions[currentQuestion].correctAnswer) {
+            if (isCorrect) {
                 score = score + 1;
                 console.log("Score:", score);
                 feedbackElement.textContent = "Correct!";
@@ -192,6 +194,16 @@ function showResults() {
 
 // Next Question button
 nextButton.addEventListener("click", () => {
+
+    const isCorrect =
+    answer === gameQuestions[currentQuestion].correctAnswer;
+
+    playerAnswers.push({
+    question: gameQuestions[currentQuestion].question,
+    selectedAnswer: answer,
+    correctAnswer: gameQuestions[currentQuestion].correctAnswer,
+    isCorrect: isCorrect
+    });
 
     if (currentQuestion < gameQuestions.length - 1) {
         currentQuestion = currentQuestion + 1;
