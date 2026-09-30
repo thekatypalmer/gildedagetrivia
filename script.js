@@ -23,10 +23,35 @@ const questions = [
         question: "What is the name of George and Bertha Russell's daughter?",
         answers: ["Gladys", "Marian", "Carrie", "Ada"],
         correctAnswer: "Gladys"
+    },
+    {
+        question: "What is the name of George and Bertha Russell's son?",
+        answers: ["Larry", "Oscar", "Jack", "Watson"],
+        correctAnswer: "Larry"
+    },
+    {
+        question: "What profession does Larry Russell pursue?",
+        answers: ["Lawyer", "Architect", "Journalist", "Banker"],
+        correctAnswer: "Architect"
+    },
+    {
+        question: "Which character represents the traditions of Old New York in the van Rhijn household?",
+        answers: ["Agnes van Rhijn", "Bertha Russell", "Peggy Scott", "Gladys Russell"],
+        correctAnswer: "Agnes van Rhijn"
+    },
+    {
+        question: "Which family represents the ambitious new-money side of New York society?",
+        answers: ["The Russells", "The van Rhijns", "The Scotts", "The Fanes"],
+        correctAnswer: "The Russells"
+    },
+    {
+        question: "Which character pursues a career in journalism?",
+        answers: ["Peggy Scott", "Marian Brook", "Gladys Russell", "Ada Brook"],
+        correctAnswer: "Peggy Scott"
     }
 ];
 
-const QUESTIONS_PER_GAME = 3;
+const QUESTIONS_PER_GAME = 5;
 
 let score = 0;
 let currentQuestion = 0;
