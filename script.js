@@ -165,7 +165,7 @@ nextButton.addEventListener("click", () => {
 
     if (currentQuestion < gameQuestions.length - 1) {
         currentQuestion = currentQuestion + 1;
-        startGame();
+        showQuestion();
     } else {
         showResults();
     }
@@ -184,4 +184,4 @@ playAgainButton.addEventListener("click", () => {
 // ========================================
 
 // Start the game
-showQuestion();
+startGame();
