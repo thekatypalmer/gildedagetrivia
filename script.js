@@ -70,6 +70,7 @@ const quizScreen = document.getElementById("quiz-screen");
 const resultsScreen = document.getElementById("results-screen");
 const finalScore = document.getElementById("final-score");
 const resultMessage = document.getElementById("result-message");
+const answerReview = document.getElementById("answer-review");
 const playAgainButton = document.getElementById("play-again-button");
 
 function shuffleArray(array) {
@@ -186,7 +187,7 @@ if (currentQuestion === gameQuestions.length - 1) {
 function showResults() {
     
     console.log(playerAnswers);
-    
+    answerReview.innerHTML = "";
     quizScreen.classList.add("hidden");
     resultsScreen.classList.remove("hidden");
 
@@ -201,6 +202,14 @@ function showResults() {
     } else {
         resultMessage.textContent = "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
     }
+    playerAnswers.forEach(playerAnswer => {
+
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+
+        const reviewQuestion = document.createElement("p");
+        reviewQuestion.textContent = playerAnswer.question;
+        reviewQuestion.classList.add("review-question");
 
 }
 
