@@ -138,6 +138,16 @@ h1 {
     font-size: 2rem;
 }
 
+#review-heading {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    padding-top: 25px;
+
+    border-top: 1px solid #b89b62;
+
+    font-size: 1.4rem;
+}
+
 #answer-review {
     margin-top: 30px;
     text-align: left;
@@ -149,8 +159,22 @@ h1 {
     border: 1px solid #b89b62;
 }
 
+.review-item p:last-child {
+    margin-bottom: 0;
+}
+
 .review-question {
-    margin-top: 0;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.review-result {
+    margin: 0;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    font-size: 0.75rem;
     font-weight: bold;
 }
 
