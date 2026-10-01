@@ -138,6 +138,32 @@ h1 {
     font-size: 2rem;
 }
 
+#answer-review {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #b89b62;
+}
+
+.review-question {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.review-correct {
+    background: #dce8d8;
+    border-color: #55704d;
+}
+
+.review-incorrect {
+    background: #ead7d3;
+    border-color: #8a5148;
+}
+
 .hidden {
     display: none;
 }
