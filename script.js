@@ -213,7 +213,18 @@ function showResults() {
             reviewItem.classList.add("review-incorrect");
             }
 
+        const resultLabel = document.createElement("p");
+        resultLabel.classList.add("review-result");
+
+        reviewItem.appendChild(resultLabel);
         const reviewQuestion = document.createElement("p");
+
+        if (playerAnswer.isCorrect) {
+            resultLabel.textContent = "Correct";
+            } else {
+            resultLabel.textContent = "Incorrect";
+        }
+        
         reviewQuestion.textContent = playerAnswer.question;
         reviewQuestion.classList.add("review-question");
         reviewItem.appendChild(reviewQuestion);
