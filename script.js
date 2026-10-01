@@ -210,6 +210,27 @@ function showResults() {
         const reviewQuestion = document.createElement("p");
         reviewQuestion.textContent = playerAnswer.question;
         reviewQuestion.classList.add("review-question");
+        reviewItem.appendChild(reviewQuestion);
+
+        const selectedAnswer = document.createElement("p");
+
+            selectedAnswer.textContent =
+                `Your answer: ${playerAnswer.selectedAnswer}`;
+    
+            reviewItem.appendChild(selectedAnswer);
+
+        if (!playerAnswer.isCorrect) {
+
+            const correctAnswer = document.createElement("p");
+
+            correctAnswer.textContent =
+                `Correct answer: ${playerAnswer.correctAnswer}`;
+
+            reviewItem.appendChild(correctAnswer);
+        }
+        answerReview.appendChild(reviewItem);
+
+        });
 
 }
 
