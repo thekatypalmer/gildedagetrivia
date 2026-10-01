@@ -207,6 +207,12 @@ function showResults() {
         const reviewItem = document.createElement("div");
         reviewItem.classList.add("review-item");
 
+        if (playerAnswer.isCorrect) {
+            reviewItem.classList.add("review-correct");
+            } else {
+            reviewItem.classList.add("review-incorrect");
+            }
+
         const reviewQuestion = document.createElement("p");
         reviewQuestion.textContent = playerAnswer.question;
         reviewQuestion.classList.add("review-question");
