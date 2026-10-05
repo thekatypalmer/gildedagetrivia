@@ -53,12 +53,18 @@ const questions = [
 
 const QUESTIONS_PER_GAME = 5;
 
+// ========================================
+// APPLICATION STATE
+// ========================================
+
 let score = 0;
 let currentQuestion = 0;
 let gameQuestions = [];
 let playerAnswers = [];
 
-console.log(questions);
+// ========================================
+// DOM REFERENCES
+// ========================================
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -72,6 +78,10 @@ const finalScore = document.getElementById("final-score");
 const resultMessage = document.getElementById("result-message");
 const answerReview = document.getElementById("answer-review");
 const playAgainButton = document.getElementById("play-again-button");
+
+// ========================================
+// FUNCTIONS
+// ========================================
 
 function shuffleArray(array) {
 
@@ -113,12 +123,12 @@ function showQuestion() {
     // Disable Next until the player answers
     nextButton.disabled = true;
 
-    // Change the button text on the final question
+// Change the button text on the final question
 if (currentQuestion === gameQuestions.length - 1) {
     nextButton.textContent = "See Results";
-    } else {
+} else {
     nextButton.textContent = "Next Question";
-    }
+}
 
     // Display the current question
     questionElement.textContent = gameQuestions[currentQuestion].question;
@@ -142,10 +152,10 @@ if (currentQuestion === gameQuestions.length - 1) {
         button.textContent = answer;
         button.classList.add("answer-button");
 
-        button.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
         const isCorrect =
-        answer === gameQuestions[currentQuestion].correctAnswer;
+            answer === gameQuestions[currentQuestion].correctAnswer;
 
         playerAnswers.push({
             question: gameQuestions[currentQuestion].question,
@@ -154,24 +164,27 @@ if (currentQuestion === gameQuestions.length - 1) {
             isCorrect: isCorrect
         });
 
-            if (isCorrect) {
-                score = score + 1;
-                console.log("Score:", score);
-                feedbackElement.textContent = "Correct!";
-                button.classList.add("correct");               
-            } else {
-                feedbackElement.textContent =
-                    `Incorrect! The correct answer was ${gameQuestions[currentQuestion].correctAnswer}.`;
-                button.classList.add("incorrect");
+        if (isCorrect) {
+            score = score + 1;
+            console.log("Score:", score);
+            feedbackElement.textContent = "Correct!";
+            button.classList.add("correct");               
+        } else {
+            feedbackElement.textContent =
+                `Incorrect! The correct answer was ${gameQuestions[currentQuestion].correctAnswer}.`;
+            button.classList.add("incorrect");
+        }
+
+        for (const answerButton of answerButtons.children) {
+
+            if (
+                answerButton.textContent === 
+                gameQuestions[currentQuestion].correctAnswer
+            ) {
+                answerButton.classList.add("correct");
             }
 
-            for (const answerButton of answerButtons.children) {
-
-                if (answerButton.textContent === gameQuestions[currentQuestion].correctAnswer) {
-                    answerButton.classList.add("correct");
-            }
-
-        answerButton.disabled = true;
+            answerButton.disabled = true;
 }
 
        // The player has answered, so allow them to continue
@@ -213,7 +226,7 @@ function showAnswerReview() {
         reviewQuestion.textContent = playerAnswer.question;
         reviewQuestion.classList.add("review-question");
        
-         reviewItem.appendChild(reviewQuestion);
+        reviewItem.appendChild(reviewQuestion);
 
         const selectedAnswer = document.createElement("p");
 
@@ -272,6 +285,10 @@ function showResults() {
     showAnswerReview();
     
 }
+
+// ========================================
+// EVENT LISTENERS
+// ========================================
 
 // Next Question button
 nextButton.addEventListener("click", () => {
