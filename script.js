@@ -184,25 +184,9 @@ if (currentQuestion === gameQuestions.length - 1) {
     });
 }
 
-function showResults() {
-    
-    console.log(playerAnswers);
-    answerReview.innerHTML = "";
-    quizScreen.classList.add("hidden");
-    resultsScreen.classList.remove("hidden");
+function showAnswerReview() {
 
-    finalScore.textContent =
-        `${score} out of ${gameQuestions.length}`;
-
-    const percentage = (score / gameQuestions.length) * 100;
-    if (percentage === 100) {
-        resultMessage.textContent = "A triumph worthy of New York society!";
-    } else if (percentage >= 50) {
-        resultMessage.textContent = "A respectable showing.";
-    } else {
-        resultMessage.textContent = "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
-    }
-    playerAnswers.forEach(playerAnswer => {
+     playerAnswers.forEach(playerAnswer => {
 
         const reviewItem = document.createElement("div");
         reviewItem.classList.add("review-item");
@@ -248,6 +232,27 @@ function showResults() {
         answerReview.appendChild(reviewItem);
 
         });
+
+}
+
+function showResults() {
+    
+    console.log(playerAnswers);
+    answerReview.innerHTML = "";
+    quizScreen.classList.add("hidden");
+    resultsScreen.classList.remove("hidden");
+
+    finalScore.textContent =
+        `${score} out of ${gameQuestions.length}`;
+
+    const percentage = (score / gameQuestions.length) * 100;
+    if (percentage === 100) {
+        resultMessage.textContent = "A triumph worthy of New York society!";
+    } else if (percentage >= 50) {
+        resultMessage.textContent = "A respectable showing.";
+    } else {
+        resultMessage.textContent = "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
+    }
 
 }
 
