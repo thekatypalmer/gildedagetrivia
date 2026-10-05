@@ -254,6 +254,8 @@ function showResults() {
         resultMessage.textContent = "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
     }
 
+    showAnswerReview();
+    
 }
 
 // Next Question button
