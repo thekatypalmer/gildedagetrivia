@@ -193,32 +193,34 @@ function showAnswerReview() {
 
         if (playerAnswer.isCorrect) {
             reviewItem.classList.add("review-correct");
-            } else {
+        } else {
             reviewItem.classList.add("review-incorrect");
-            }
+        }
 
         const resultLabel = document.createElement("p");
         resultLabel.classList.add("review-result");
 
         reviewItem.appendChild(resultLabel);
+        
         const reviewQuestion = document.createElement("p");
 
         if (playerAnswer.isCorrect) {
             resultLabel.textContent = "Correct";
-            } else {
+        } else {
             resultLabel.textContent = "Incorrect";
         }
         
         reviewQuestion.textContent = playerAnswer.question;
         reviewQuestion.classList.add("review-question");
-        reviewItem.appendChild(reviewQuestion);
+       
+         reviewItem.appendChild(reviewQuestion);
 
         const selectedAnswer = document.createElement("p");
 
-            selectedAnswer.textContent =
-                `Your answer: ${playerAnswer.selectedAnswer}`;
+        selectedAnswer.textContent =
+            `Your answer: ${playerAnswer.selectedAnswer}`;
     
-            reviewItem.appendChild(selectedAnswer);
+        reviewItem.appendChild(selectedAnswer);
 
         if (!playerAnswer.isCorrect) {
 
@@ -229,7 +231,8 @@ function showAnswerReview() {
 
             reviewItem.appendChild(correctAnswer);
         }
-        answerReview.appendChild(reviewItem);
+        
+         answerReview.appendChild(reviewItem);
 
         });
 
@@ -238,20 +241,32 @@ function showAnswerReview() {
 function showResults() {
     
     console.log(playerAnswers);
+    
     answerReview.innerHTML = "";
+    
     quizScreen.classList.add("hidden");
     resultsScreen.classList.remove("hidden");
 
     finalScore.textContent =
         `${score} out of ${gameQuestions.length}`;
 
-    const percentage = (score / gameQuestions.length) * 100;
+    const percentage = 
+        (score / gameQuestions.length) * 100;
+    
     if (percentage === 100) {
-        resultMessage.textContent = "A triumph worthy of New York society!";
+        
+        resultMessage.textContent = 
+            "A triumph worthy of New York society!";
+    
     } else if (percentage >= 50) {
-        resultMessage.textContent = "A respectable showing.";
+        
+        resultMessage.textContent = 
+            "A respectable showing.";
+    
     } else {
-        resultMessage.textContent = "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
+        
+        resultMessage.textContent = 
+            "Perhaps you and Mr. McAllister might compare notes on life beyond society's gates.";
     }
 
     showAnswerReview();
