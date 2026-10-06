@@ -306,6 +306,7 @@ let score = 0;
 let currentQuestion = 0;
 let gameQuestions = [];
 let playerAnswers = [];
+let currentDifficulty = "";
 
 // ========================================
 // DOM REFERENCES
@@ -318,6 +319,7 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const feedbackElement = document.getElementById("feedback");
 const nextButton = document.getElementById("next-button");
+const difficultyLabel = document.getElementById("difficulty-label");
 const progressText = document.getElementById("progress-text");
 const progressFill = document.getElementById("progress-fill");
 const quizScreen = document.getElementById("quiz-screen");
@@ -350,6 +352,7 @@ function startGame(selectedDifficulty) {
     score = 0;
     currentQuestion = 0;
     playerAnswers = [];
+    currentDifficulty = selectedDifficulty;
 
     gameQuestions = questions.filter(question => {
         return question.difficulty === selectedDifficulty;
@@ -362,6 +365,8 @@ function startGame(selectedDifficulty) {
     difficultyScreen.classList.add("hidden");
     resultsScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
+
+    difficultyLabel.textContent = `${currentDifficulty} Difficulty`;
 
     showQuestion();
 }
