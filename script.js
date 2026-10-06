@@ -575,8 +575,6 @@ playAgainButton.addEventListener("click", () => {
 
 });
 
-}); // Play Again listener ends here
-
 // ========================================
 // START THE APPLICATION
 // ========================================
