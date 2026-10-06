@@ -523,12 +523,12 @@ function showResults() {
     if (percentage === 100) {
         
         resultMessage.textContent = 
-            "A triumph worthy of New York society!";
+            "Mrs. Astor has been informed. Your invitation is in the mail.";
     
     } else if (percentage >= 50) {
         
         resultMessage.textContent = 
-            "A respectable showing.";
+            "Bertha Russell sees potential. Agnes van Rhijn remains unconvinced.";
     
     } else {
         
