@@ -423,7 +423,6 @@ if (currentQuestion === gameQuestions.length - 1) {
 
         if (isCorrect) {
             score = score + 1;
-            console.log("Score:", score);
             feedbackElement.textContent = "Correct!";
             button.classList.add("correct");               
         } else {
@@ -509,8 +508,6 @@ function showAnswerReview() {
 }
 
 function showResults() {
-    
-    console.log(playerAnswers);
     
     answerReview.innerHTML = "";
     
