@@ -311,6 +311,9 @@ let playerAnswers = [];
 // DOM REFERENCES
 // ========================================
 
+const difficultyScreen = document.getElementById("difficulty-screen");
+const difficultyButtons = document.querySelectorAll(".difficulty-button");
+
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const feedbackElement = document.getElementById("feedback");
@@ -342,17 +345,21 @@ function shuffleArray(array) {
     return array;
 }
 
-function startGame() {
+function startGame(selectedDifficulty) {
 
     score = 0;
     currentQuestion = 0;
     playerAnswers = [];
 
-    gameQuestions = [...questions];
+    gameQuestions = questions.filter(question => {
+        return question.difficulty === selectedDifficulty;
+    });
+
     shuffleArray(gameQuestions);
 
     gameQuestions = gameQuestions.slice(0, QUESTIONS_PER_GAME);
 
+    difficultyScreen.classList.add("hidden");
     resultsScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
 
@@ -535,6 +542,18 @@ function showResults() {
 // EVENT LISTENERS
 // ========================================
 
+difficultyButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const selectedDifficulty = button.dataset.difficulty;
+
+        startGame(selectedDifficulty);
+
+    });
+
+});
+
 // Next Question button
 nextButton.addEventListener("click", () => {
 
@@ -550,7 +569,11 @@ nextButton.addEventListener("click", () => {
 
 playAgainButton.addEventListener("click", () => {
 
-    startGame();
+    resultsScreen.classList.add("hidden");
+    quizScreen.classList.add("hidden");
+    difficultyScreen.classList.remove("hidden");
+
+});
 
 }); // Play Again listener ends here
 
@@ -558,5 +581,3 @@ playAgainButton.addEventListener("click", () => {
 // START THE APPLICATION
 // ========================================
 
-// Start the game
-startGame();
